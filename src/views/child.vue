@@ -1,13 +1,11 @@
 <template>
-  <div>
-    {{name}}
-  </div>
+  <input type="text" :value="value">
 </template>
 
 <script>
 export default {
   props: {
-    name: {
+    value: {
       type: String
     }
   }

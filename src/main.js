@@ -5,51 +5,31 @@ import Vue from 'vue'
 
 Vue.config.productionTip = false
 
-Vue.mixin({
-  created () {
-    console.log('parent created')
-  }
-})
-
-const childComp = {
-  template: '<div>{{msg}}</div>',
-  created () {
-    console.log('child created')
-  },
-  mounted () {
-    console.log('child mounted')
-  },
+const vm = new Vue({
+  template: `<ul :class="bindCls" class="list" v-if="isShow">
+    <li v-for="(item,index) in data" @click="clickItem(index)">{{item}}:{{index}}</li>
+  </ul>`,
   data () {
     return {
-      msg: 'Hello Vue'
+      bindCls: 'class',
+      isShow: true,
+      data: ['1', 2],
+      message: 'hello Vue',
+      single: {
+        name: 'hf'
+      }
+    }
+  },
+  methods: {
+    clickItem () {
     }
   }
-}
-
-const vm = new Vue({
-
-  // template: `<div id="app" @click="changeMsg">
-  //   {{ message }}
-  // </div>`,
-  // data () {
-  //   return {
-  //     message: 'hello Vue',
-  //     single: {
-  //       name: 'hf'
-  //     }
-  //   }
-  // },
-  // methods: {
-  //   changeMsg () {
-  //     this.message = 'hello hf'
-  //   }
-  // },
   // mounted () {
   //   // this.$set()
   // },
   // router,
   // store,
-  render: h => h(childComp)
+  // render: h => h(App)
 }).$mount('#app')
 
 console.log(vm, vm.$el.__vue__)

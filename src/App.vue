@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     this is app
-    <Child name='hello child'/>
+    <Child :value='value' />
     <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
@@ -19,8 +19,11 @@ export default {
   },
   data () {
     return {
-      loading: true,
-      hello: 'hello'
+      person: {
+        name: 'hf',
+        age: 12
+      },
+      value: 'hello world'
     }
   }
 }

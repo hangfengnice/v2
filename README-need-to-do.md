@@ -10,9 +10,23 @@
 
 ## Vue中的模版编译
 
+  `src/platforms/web/entry-runtime-with-compiler.js`
+  `src/platforms/web/compiler/index.js`
+  baseOptions **src/platforms/web/compiler/options**
+  createCompiler
+
+  `createCompilerCreator`
+
+  `src/compiler/index.js` 关键
+
+  parseHTML 
+
 ## 生命周期钩子怎么实现的
 
 callHook `src/core/instance/lifecycle`
+
+`src/core/instance/init.js`
+
 
 
 

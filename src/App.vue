@@ -1,5 +1,7 @@
 <template>
-  <div id="app" v-loading='loading'>
+  <div id="app">
+    this is app
+    <Child name='hello child'/>
     <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
@@ -9,11 +11,16 @@
 </template>
 
 <script>
+import Child from './views/child'
 export default {
   name: 'app',
+  components: {
+    Child
+  },
   data () {
     return {
-      loading: true
+      loading: true,
+      hello: 'hello'
     }
   }
 }

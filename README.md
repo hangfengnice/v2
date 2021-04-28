@@ -51,3 +51,8 @@ queueWatcher
 
 ## nexttick
 
+2.6.11
+
+timerFunc
+
+Promise >> MutationObserver >> setImmediate >> setTimeout

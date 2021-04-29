@@ -120,6 +120,13 @@ console.log(4)
 
 ## vue的事件绑定原理
 
+  processAttrs() `node_modules/vue/src/compiler/parser/index.js`
+  addHandler() `src/compiler/helpers.js`
+
+  codegen() `src/compiler/codegen/index.js`
+
+  dom `src/platforms/web/runtime/modules`
+
 ## watch中的deep:true 的实现
 
 ## vue中的 v-html 会导致什么问题

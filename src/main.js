@@ -5,10 +5,25 @@ import Vue from 'vue'
 
 Vue.config.productionTip = false
 
+const Child = {
+  template: '<button @click="clickHandler($event)">' +
+  'click me' +
+  '</button>',
+  methods: {
+    clickHandler (e) {
+      console.log('Button clicked!', e)
+      this.$emit('select')
+    }
+  }
+}
+
 const vm = new Vue({
-  template: `<ul :class="bindCls" class="list" v-if="isShow">
-    <li v-for="(item,index) in data" @click="clickItem(index)">{{item}}:{{index}}</li>
-  </ul>`,
+  components: {
+    Child
+  },
+  template: '<div>' +
+    '<child @hook:created="onCreated" @select="selectHandler" @click.native.prevent="clickHandler"></child>' +
+  '</div>',
   data () {
     return {
       bindCls: 'class',
@@ -21,15 +36,19 @@ const vm = new Vue({
     }
   },
   methods: {
-    clickItem () {
+    clickHandler () {
+      console.log('Child clicked!')
+    },
+    selectHandler () {
+      console.log('Child select!')
+    },
+    onCreated () {
+      console.log('created')
     }
   }
-  // mounted () {
-  //   // this.$set()
-  // },
   // router,
   // store,
   // render: h => h(App)
 }).$mount('#app')
 
-console.log(vm, vm.$el.__vue__)
+console.log(vm)

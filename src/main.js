@@ -5,45 +5,15 @@ import Vue from 'vue'
 
 Vue.config.productionTip = false
 
-const Child = {
-  template: '<button @click="clickHandler($event)">' +
-  'click me' +
-  '</button>',
-  methods: {
-    clickHandler (e) {
-      console.log('Button clicked!', e)
-      this.$emit('select')
-    }
-  }
-}
-
 const vm = new Vue({
-  components: {
-    Child
-  },
-  template: '<div>' +
-    '<child @hook:created="onCreated" @select="selectHandler" @click.native.prevent="clickHandler"></child>' +
-  '</div>',
+
+  template: `<div>
+  <input type="text" placeholder='edit me' v-model='message' />
+  <p>message is: {{message}}</p>
+</div>`,
   data () {
     return {
-      bindCls: 'class',
-      isShow: true,
-      data: ['1', 2],
-      message: 'hello Vue',
-      single: {
-        name: 'hf'
-      }
-    }
-  },
-  methods: {
-    clickHandler () {
-      console.log('Child clicked!')
-    },
-    selectHandler () {
-      console.log('Child select!')
-    },
-    onCreated () {
-      console.log('created')
+      message: ''
     }
   }
   // router,

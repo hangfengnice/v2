@@ -127,11 +127,20 @@ console.log(4)
 
   dom `src/platforms/web/runtime/modules`
 
+  updateDOMListeners ``
+
+  vnode.data.hook 
+
+  initMethods 
+
 ## watch中的deep:true 的实现
 
 ## vue中的 v-html 会导致什么问题
 
 ## v-model的实现原理 以及如何自定义 v-model
+
+`<div><input type="text" placeholder='edit me' v-model='message' /><p>message is: {{message}}</p>
+</div>`
 
 ## 组件渲染跟更新过程
 

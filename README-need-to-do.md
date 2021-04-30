@@ -139,8 +139,18 @@ console.log(4)
 
 ## v-model的实现原理 以及如何自定义 v-model
 
-`<div><input type="text" placeholder='edit me' v-model='message' /><p>message is: {{message}}</p>
-</div>`
+  `<div><input type="text" placeholder='edit me' v-model='message' /><p>message is: {{message}}</p>
+  </div>`
+  
+  parse 阶段
+    processAttrs()
+    addDirective()
+  codegen 阶段
+    genData()
+    genDirectives() `src/compiler/codegen/index.js`
+    genAssignmentCode()
+
+  组件部分
 
 ## 组件渲染跟更新过程
 

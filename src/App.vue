@@ -1,31 +1,78 @@
 <template>
   <div id="app">
-    this is app
-    <Child :value='value' />
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/> -->
+    <el-table ref="table" :data="tableData" border show-summary :span-method="arraySpanMethod" style="width: 100%">
+      <el-table-column prop="id" label="ID" width="180"> </el-table-column>
+      <el-table-column prop="name" label="姓名"> </el-table-column>
+      <el-table-column prop="amount1" sortable label="数值 1">
+      </el-table-column>
+      <el-table-column prop="amount2" sortable label="数值 2">
+      </el-table-column>
+      <el-table-column prop="amount3" sortable label="数值 3">
+      </el-table-column>
+    </el-table>
   </div>
 </template>
 
 <script>
-import Child from './views/child'
 export default {
   name: 'app',
-  components: {
-    Child
-  },
+
   data () {
     return {
-      person: {
-        name: 'hf',
-        age: 12
-      },
-      value: 'hello world'
+      tableData: [{
+        id: '12987122',
+        name: '王小虎',
+        amount1: '234',
+        amount2: '3.2',
+        amount3: 10
+      }, {
+        id: '12987123',
+        name: '王小虎',
+        amount1: '165',
+        amount2: '4.43',
+        amount3: 12
+      }, {
+        id: '12987124',
+        name: '王小虎',
+        amount1: '324',
+        amount2: '1.9',
+        amount3: 9
+      }, {
+        id: '12987125',
+        name: '王小虎',
+        amount1: '621',
+        amount2: '2.2',
+        amount3: 17
+      }, {
+        id: '12987126',
+        name: '王小虎',
+        amount1: '539',
+        amount2: '4.1',
+        amount3: 15
+      }]
     }
+  },
+  mounted () {
+    // console.log(this.$refs.table)
+    const tr = this.$refs.table.$el.querySelector('.el-table__footer-wrapper tbody tr')
+    this.$nextTick(() => {
+      const first = tr.firstElementChild
+      first.setAttribute('colspan', 2)
+      const next = first.nextElementSibling
+      tr.removeChild(next)
+    })
+  },
+  methods: {
+    arraySpanMethod ({ row, column, rowIndex, columnIndex }) {
+      // console.log(row, column, rowIndex, columnIndex)
+    }
+    // summaryMethod (eve) {
+    //   console.log(eve)
+    //   // console.log(row, column, rowIndex, columnIndex)
+    //   console.log('hello')
+    // }
   }
+
 }
 </script>
 

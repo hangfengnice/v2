@@ -1,39 +1,36 @@
 import Vue from 'vue'
-import App from './App.vue'
+// import App from './App.vue'
 // import router from './router'
 // import store from './store'
 
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
+// import ElementUI from 'element-ui'
+// import 'element-ui/lib/theme-chalk/index.css'
 
-Vue.use(ElementUI)
+// Vue.use(ElementUI)
 
 Vue.config.productionTip = false
 
-// const Child = {
-//   template: '<div>' +
-//   '<input :value="value" @input="updateValue" placeholder="edit me">' +
-//   '</div>',
-//   props: ['value'],
-//   methods: {
-//     updateValue (e) {
-//       this.$emit('input', e.target.value)
-//     }
-//   }
-// }
+const Child = {
+  template: '<div class="child">' +
+  '<slot text="Hello " :msg="msg"></slot>' +
+  '</div>',
+  data () {
+    return {
+      msg: 'Vue'
+    }
+  }
+}
 
 new Vue({
-  // template: '<div>' +
-  // '<child v-model="message"></child>' +
-  // '<p>Message is: {{ message }}</p>' +
-  // '</div>',
-  // data () {
-  //   return {
-  //     message: ''
-  //   }
-  // },
-  // components: {
-  //   Child
-  // }
-  render: h => h(App)
+  template: '<div>' +
+  '<child>' +
+  '<template slot-scope="props">' +
+  '<p>Hello from parent</p>' +
+  '<p>{{ props.text + props.msg}}</p>' +
+  '</template>' +
+  '</child>' +
+  '</div>',
+  components: {
+    Child
+  }
 }).$mount('#app')

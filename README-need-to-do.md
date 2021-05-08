@@ -96,6 +96,8 @@ console.log(4)
 
 ## slot 的实现原理
 
+  普通cha
+
 ## keep-alive的原理
 
 ## vue 组件之间的传值方式跟区别
@@ -151,6 +153,8 @@ console.log(4)
     genAssignmentCode()
 
   组件部分
+    genComponentModel()
+    createComponent()
 
 ## 组件渲染跟更新过程
 

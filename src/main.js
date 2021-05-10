@@ -1,6 +1,6 @@
 import Vue from 'vue'
-// import App from './App.vue'
-// import router from './router'
+import App from './App.vue'
+import router from './router'
 // import store from './store'
 
 // import ElementUI from 'element-ui'
@@ -9,28 +9,7 @@ import Vue from 'vue'
 // Vue.use(ElementUI)
 
 Vue.config.productionTip = false
-
-const Child = {
-  template: '<div class="child">' +
-  '<slot text="Hello " :msg="msg"></slot>' +
-  '</div>',
-  data () {
-    return {
-      msg: 'Vue'
-    }
-  }
-}
-
 new Vue({
-  template: '<div>' +
-  '<child>' +
-  '<template slot-scope="props">' +
-  '<p>Hello from parent</p>' +
-  '<p>{{ props.text + props.msg}}</p>' +
-  '</template>' +
-  '</child>' +
-  '</div>',
-  components: {
-    Child
-  }
+  router,
+  render: h => h(App)
 }).$mount('#app')

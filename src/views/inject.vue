@@ -1,20 +1,6 @@
 <template>
   <div ref='boo'>
     inject: {{app.userInfo}}
-    vue.prototype.$bus = new Vue()
-    $on
-    $emit
-
-    provide
-    inject
-
-    $root
-
-    $parent
-
-    $children
-
-    ref
     <button @click="handleEmitEvent">触发自定义事件</button>
     <ComponentA ref='compoenta' @hook:created='onCreated' />
   </div>
@@ -39,7 +25,7 @@ export default {
       app: 'hello'
     }
   },
-  watch () {
+  watch: {
     // app: {
     //   deep: true,
     //   immedia

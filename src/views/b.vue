@@ -7,6 +7,11 @@ import Emitter from '@/mixins/emitter.js'
 export default {
   name: 'component-b',
   mixins: [Emitter],
+  data () {
+    return {
+      name: 'component-b-data-name'
+    }
+  },
   created () {
     this.$on('on-message', this.showMessage)
   },

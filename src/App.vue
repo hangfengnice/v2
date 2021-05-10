@@ -2,6 +2,10 @@
   <div id="app">
     <div>
       <router-link to='/form'>form.vue</router-link>
+      <router-link to='/checkbox'>checkbox.vue</router-link>
+      <router-link to='/radio'>radio.vue</router-link>
+      <router-link to='/display'>display.vue</router-link>
+      <router-link to='/table-render'>table-render.vue</router-link>
     </div>
     <router-view></router-view>
   </div>

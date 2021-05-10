@@ -21,7 +21,28 @@ const routes = [
     path: '/form',
     name: 'form',
     component: () => import('@/views/form.vue')
+  },
+  {
+    path: '/checkbox',
+    name: 'checkbox',
+    component: () => import('@/views/checkbox.vue')
+  },
+  {
+    path: '/radio',
+    name: 'radio',
+    component: () => import('@/views/radio.vue')
+  },
+  {
+    path: '/display',
+    name: 'display',
+    component: () => import('@/views/display.vue')
+  },
+  {
+    path: '/table-render',
+    name: 'table-render',
+    component: () => import('@/views/table-render.vue')
   }
+
 ]
 
 const router = new VueRouter({

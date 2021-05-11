@@ -1,23 +1,25 @@
 <template>
   <div>
-    <table-slot :columns="columns" :data="data">
-      <template v-slot:name='{row, index}'>
-        <input type="text" v-model="editName" v-if="editIndex === index">
-        <span v-else>{{row.name}}</span>
+    div
+
+    <table-slot ref="table" :columns="columns" :data="data">
+      <template v-slot:name="{ row, index }">
+        <input type="text" v-model="editName" v-if="editIndex === index" />
+        <span v-else>{{ row.name }}</span>
       </template>
-      <template v-slot:age='{row, index}'>
-        <input type="text" v-model="editAge" v-if="editIndex === index">
-        <span v-else>{{row.age}}</span>
+      <template v-slot:age="{ row, index }">
+        <input type="text" v-model="editAge" v-if="editIndex === index" />
+        <span v-else>{{ row.age }}</span>
       </template>
-      <template v-slot:birthday='{row, index}'>
-        <input type="text" v-model="editBirthday" v-if="editIndex === index">
-        <span v-else>{{getBirthday(row.birthday)}}</span>
+      <template v-slot:birthday="{ row, index }">
+        <input type="text" v-model="editBirthday" v-if="editIndex === index" />
+        <span v-else>{{ getBirthday(row.birthday) }}</span>
       </template>
-      <template v-slot:address='{row, index}'>
-        <input type="text" v-model="editAddress" v-if="editIndex === index">
-        <span v-else>{{row.address}}</span>
+      <template v-slot:address="{ row, index }">
+        <input type="text" v-model="editAddress" v-if="editIndex === index" />
+        <span v-else>{{ row.address }}</span>
       </template>
-      <template v-slot:action='{row, index}'>
+      <template v-slot:action="{ row, index }">
         <div v-if="editIndex === index">
           <button @click="handleSave(index)">保存</button>
           <button @click="editIndex = -1">取消</button>
@@ -30,7 +32,7 @@
   </div>
 </template>
 <script>
-import TableSlot from '../components/table-slot/table.vue'
+import TableSlot from '../../components/table-slot3/table.vue'
 
 export default {
   components: { TableSlot },

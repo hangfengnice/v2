@@ -4,7 +4,7 @@
   </div>
 </template>
 <script>
-import TableRender from '../components/table-render/table.vue'
+import TableRender from '../../components/table-render/table.vue'
 
 export default {
   components: { TableRender },

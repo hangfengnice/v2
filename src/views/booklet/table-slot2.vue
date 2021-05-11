@@ -1,7 +1,5 @@
 <template>
   <div>
-    div
-
     <table-slot ref="table" :columns="columns" :data="data">
       <template v-slot:name="{ row, index }">
         <input type="text" v-model="editName" v-if="editIndex === index" />
@@ -32,7 +30,7 @@
   </div>
 </template>
 <script>
-import TableSlot from '../components/table-slot3/table.vue'
+import TableSlot from '../../components/table-slot2/table.vue'
 
 export default {
   components: { TableSlot },
@@ -46,51 +44,61 @@ export default {
       columns: [
         {
           title: '姓名',
-          slot: 'name'
+          render: (h, { row, index }) => {
+            return h('div', [
+              this.$refs.table.$scopedSlots.name({
+                row,
+                index
+              })
+            ])
+          }
         },
         {
           title: '年龄',
-          slot: 'age'
+          render: (h, { row, index }) => {
+            return h('div', [
+              this.$refs.table.$scopedSlots.age({
+                row,
+                index
+              })
+            ])
+          }
         },
         {
           title: '出生日期',
-          slot: 'birthday'
+          render: (h, { row, index }) => {
+            return h('div', [
+              this.$refs.table.$scopedSlots.birthday({
+                row,
+                index
+              })
+            ])
+          }
         },
         {
           title: '地址',
-          slot: 'address'
+          render: (h, { row, index }) => {
+            return h('div', [
+              this.$refs.table.$scopedSlots.address({
+                row,
+                index
+              })
+            ])
+          }
         },
         {
           title: '操作',
-          slot: 'action'
+          render: (h, { row, index }) => {
+            return h('div', [
+              this.$refs.table.$scopedSlots.action({
+                row,
+                index
+              })
+            ])
+          }
         }
       ],
-      data: [
-        {
-          name: '王小明',
-          age: 18,
-          birthday: '919526400000',
-          address: '北京市朝阳区芍药居'
-        },
-        {
-          name: '张小刚',
-          age: 25,
-          birthday: '696096000000',
-          address: '北京市海淀区西二旗'
-        },
-        {
-          name: '李小红',
-          age: 30,
-          birthday: '563472000000',
-          address: '上海市浦东新区世纪大道'
-        },
-        {
-          name: '周小伟',
-          age: 26,
-          birthday: '687024000000',
-          address: '深圳市南山区深南大道'
-        }
-      ]
+      data: []
     }
   },
   methods: {
@@ -116,6 +124,34 @@ export default {
 
       return `${year}-${month}-${day}`
     }
+  },
+  mounted () {
+    this.data = [
+      {
+        name: '王小明',
+        age: 18,
+        birthday: '919526400000',
+        address: '北京市朝阳区芍药居'
+      },
+      {
+        name: '张小刚',
+        age: 25,
+        birthday: '696096000000',
+        address: '北京市海淀区西二旗'
+      },
+      {
+        name: '李小红',
+        age: 30,
+        birthday: '563472000000',
+        address: '上海市浦东新区世纪大道'
+      },
+      {
+        name: '周小伟',
+        age: 26,
+        birthday: '687024000000',
+        address: '深圳市南山区深南大道'
+      }
+    ]
   }
 }
 </script>

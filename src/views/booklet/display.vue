@@ -6,7 +6,7 @@
   </div>
 </template>
 <script>
-import iDisplay from '../components/display/display.vue'
+import iDisplay from '../../components/display/display.vue'
 import defaultCode from './default-code.js'
 
 export default {

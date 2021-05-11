@@ -11,6 +11,9 @@
           <template v-if="'render' in col">
             <Render :row="row" :column="col" :index="index" :render="col.render" />
           </template>
+          <template v-if="'slot' in col">
+            <ScopeSlot :row="row" :column="col" :index="index" :render="col.render" />
+          </template>
           <template v-else>
             {{ row[col.key] }}
           </template>
@@ -21,11 +24,13 @@
 </template>
 <script>
 import Render from './render'
+import ScopeSlot from './slot'
 
 export default {
   name: 'component-table',
   components: {
-    Render
+    Render,
+    ScopeSlot
   },
   props: {
     columns: {
@@ -39,6 +44,11 @@ export default {
       default () {
         return []
       }
+    }
+  },
+  provide () {
+    return {
+      tableRoot: this
     }
   }
 }

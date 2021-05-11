@@ -41,8 +41,28 @@ const routes = [
     path: '/table-render',
     name: 'table-render',
     component: () => import('@/views/table-render.vue')
-  }
+  },
+  {
+    path: '/table-slot',
+    name: 'table-slot',
+    component: () => import('@/views/table-slot.vue')
+  },
+  {
+    path: '/table-slot2',
+    name: 'table-slot2',
+    component: () => import('@/views/table-slot2.vue')
+  },
+  {
+    path: '/table-slot3',
+    name: 'table-slot3',
+    component: () => import('@/views/table-slot3.vue')
+  },
 
+  {
+    path: '/tree',
+    name: 'tree',
+    component: () => import('@/views/tree.vue')
+  }
 ]
 
 const router = new VueRouter({

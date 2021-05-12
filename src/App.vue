@@ -47,6 +47,22 @@ export default {
         {
           name: 'count-to',
           to: '/count-to'
+        },
+        {
+          name: 'split-pane',
+          to: '/split-pane'
+        },
+        {
+          name: 'render-page',
+          to: '/render-page'
+        },
+        {
+          name: 'menu-page',
+          to: '/menu-page'
+        },
+        {
+          name: 'login',
+          to: '/login'
         }
       ]
     }
@@ -70,5 +86,11 @@ h4 {
 }
 .link:hover {
   text-decoration: underline;
+}
+ul {
+  padding: 0;
+}
+li {
+  list-style: none;
 }
 </style>

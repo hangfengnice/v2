@@ -1,7 +1,7 @@
 <template>
   <div>
     <slot></slot>
-    <!-- <Menu style="width: auto" theme='dark'>
+    <Menu v-show="!collapsed" style="width: auto" theme='dark'>
       <template v-for="item in list">
         <ReSubmenu :parent='item' v-if="item.children" :key="item.title"></ReSubmenu>
         <MenuItem v-else :key="item.title" :name='item.title'>
@@ -9,14 +9,14 @@
           {{item.title}}
         </MenuItem>
       </template>
-    </Menu> -->
-    <div>
+    </Menu>
+    <div v-show="collapsed">
       <template v-for="item in list">
-        <ReDropdown v-if="item.children" :key="item.title" :parent='item'>
+        <ReDropdown v-if="item.children" iconColor='#fff' :key="item.title" :showTitle='false' :parent='item'>
 
         </ReDropdown>
         <Tooltip v-else transfer :content='item.title' placement='right' :key="item.title">
-          <div class="widht">
+          <div>
             <Icon :type='item.icon' size='20'></Icon>
           </div>
         </Tooltip>
@@ -26,16 +26,16 @@
 </template>
 
 <script>
-// import ReSubmenu from './re-submenu'
+import ReSubmenu from './re-submenu'
 import ReDropdown from './re-dropdown'
 export default {
   name: 'side-menu',
   components: {
-    // ReSubmenu,
+    ReSubmenu,
     ReDropdown
   },
   props: {
-    collpased: {
+    collapsed: {
       type: Boolean,
       default: false
     },
@@ -54,10 +54,9 @@ export default {
   display: block;
   padding: 5px 0;
 }
-/deep/ .ivu-tooltip-rel {
+/deep/ .ivu-tooltip-rel,
+/deep/ .ivu-dropdown {
   display: block;
-}
-.widht {
-  width: 100%;
+  text-align: center;
 }
 </style>

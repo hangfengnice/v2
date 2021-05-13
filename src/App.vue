@@ -25,6 +25,9 @@
       </el-button>
     </div>
 
+    <p>
+      <el-button type="primary" size="mini" @click="logout">注销</el-button>
+    </p>
     <div>
       <h4>实战</h4>
       <el-button v-for="item in practice" :key="item.to" type="primary" size="mini">
@@ -38,6 +41,7 @@
 </template>
 
 <script>
+import { setToken } from '@/util/index.js'
 
 export default {
   name: 'app',
@@ -63,8 +67,18 @@ export default {
         {
           name: 'login',
           to: '/login'
+        },
+        {
+          name: 'layout',
+          to: '/layout'
         }
       ]
+    }
+  },
+  methods: {
+    logout () {
+      setToken('')
+      this.$router.push({ name: 'login' })
     }
   }
 }

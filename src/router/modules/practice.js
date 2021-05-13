@@ -23,5 +23,10 @@ export default [
     path: '/login',
     name: 'login',
     component: () => import('@/views/practice/login.vue')
+  },
+  {
+    path: '/layout',
+    name: 'layout',
+    component: () => import('@/views/practice/layout.vue')
   }
 ]

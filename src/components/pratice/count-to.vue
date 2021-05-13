@@ -82,7 +82,8 @@ export default {
   },
   methods: {
     getCount () {
-      return this.$refs.count.textContent
+      const count = this.$refs.count
+      return count && count.textContent
     },
     initial () {
       const {

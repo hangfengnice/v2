@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+    <div v-for="(item, index) in items" :key="index">
+      {{item}}
+    </div>
     <div>
       <h4>vue 小册</h4>
       <router-link to='/form'>form.vue</router-link>
@@ -36,6 +39,7 @@
     </div>
 
     <router-view></router-view>
+
   </div>
 
 </template>
@@ -72,7 +76,11 @@ export default {
           name: 'layout',
           to: '/layout'
         }
-      ]
+      ],
+      items: {
+        naem: 1,
+        age: 1
+      }
     }
   },
   methods: {
@@ -80,6 +88,9 @@ export default {
       setToken('')
       this.$router.push({ name: 'login' })
     }
+  },
+  mounted () {
+    this.$delete(this.items, 'age')
   }
 }
 </script>

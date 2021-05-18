@@ -1,6 +1,11 @@
 <template>
   <div id="app">
-    <div v-for="(item, index) in items" :key="index">
+    <SlotComponent>
+      <template v-slot:default='{item}'>
+        {{msg}} item: {{item}}
+      </template>
+    </SlotComponent>
+    <!-- <div v-for="(item, index) in items" :key="index">
       {{item}}
     </div>
     <div>
@@ -36,7 +41,7 @@
       <el-button v-for="item in practice" :key="item.to" type="primary" size="mini">
         <router-link class="link" :to="item.to">{{item.name}}</router-link>
       </el-button>
-    </div>
+    </div> -->
 
     <router-view></router-view>
 
@@ -46,9 +51,13 @@
 
 <script>
 import { setToken } from '@/util/index.js'
+import SlotComponent from '@/views/slot-component.vue'
 
 export default {
   name: 'app',
+  components: {
+    SlotComponent
+  },
   data () {
     return {
       practice: [
@@ -80,7 +89,8 @@ export default {
       items: {
         naem: 1,
         age: 1
-      }
+      },
+      msg: 'hell oslot'
     }
   },
   methods: {

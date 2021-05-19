@@ -1,5 +1,7 @@
 # Vue2
 
+## python -m SimpleHTTPServer
+
 ## 响应式数据
 
 1. 初始化实例的时候 定义了 $data $props `/vue/src/core/instance/state.js`

@@ -1,6 +1,6 @@
 module.exports = {
-  runtimeCompiler: true,
-  devServer: {
-    proxy: 'http://localhost:3000'
-  }
+  runtimeCompiler: true
+  // devServer: {
+  //   proxy: 'http://localhost:3000'
+  // }
 }

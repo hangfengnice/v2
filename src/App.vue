@@ -100,6 +100,7 @@ export default {
     }
   },
   mounted () {
+    console.log('env', process.env)
     this.$delete(this.items, 'age')
   }
 }
